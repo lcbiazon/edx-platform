@@ -219,16 +219,15 @@ def _has_db_updated_with_new_score_bwc_v2(
     return db_updated
 
 
-def _log_db_not_updated(user_id, scored_block_usage_key, expected_modified_time, score_deleted, modified_time):
+def _log_db_not_updated(kwargs):
+    """
+    Logs an info-level message indicating that the database was
+    not updated when we tried to recalculate a subsection grade.
+    """
     log.info(
-        u"Persistent Grades: tasks._has_database_updated_with_new_score is False. User ID: {0}. Block usage key: {1}. "
-        u"Expected modified time: {2}. Score deleted: {3}. Actual modified: {4}. Task ID: {5}.".format(
-            user_id,
-            scored_block_usage_key,
-            expected_modified_time,
-            score_deleted,
-            modified_time,
-            recalculate_subsection_grade_v2.request.id
+        u"Persistent Grades: tasks._has_database_updated_with_new_score is False. Task ID: {}. Kwargs: {}".format(
+            recalculate_subsection_grade_v2.request.id,
+            kwargs
         )
     )
 
