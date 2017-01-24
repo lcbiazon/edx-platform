@@ -2178,8 +2178,8 @@ REST_FRAMEWORK = {
         'rest_framework.throttling.UserRateThrottle',
     ),
     'DEFAULT_THROTTLE_RATES': {
-        'user': '50/minute',
-        'service_user': '500/minute',
+        'user': '60/minute',
+        'service_user': '120/minute',
     },
 }
 
