@@ -19,8 +19,8 @@ from django.utils.translation import get_language_bidi
 from django.views.decorators.http import require_GET
 import newrelic.agent
 
-from django_component_views.component_views import ComponentView
-from django_component_views.fragment import Fragment
+from web_fragments.fragment import Fragment
+from web_fragments.views import FragmentView
 
 from courseware.courses import get_course_with_access
 from openedx.core.djangoapps.course_groups.cohorts import (
@@ -619,7 +619,7 @@ def followed_threads(request, course_key, user_id):
         raise Http404
 
 
-class LmsComponentView(ComponentView):
+class LmsComponentView(FragmentView):
     """
     The base class of all edx-platform component views.
     """
